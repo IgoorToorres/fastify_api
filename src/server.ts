@@ -1,5 +1,6 @@
 import fastify from 'fastify'
 import { db } from './database.js'
+import { env } from './env/index.js'
 
 const app = fastify()
 
@@ -11,7 +12,7 @@ app.get('/hello', async () => {
 
 app
   .listen({
-    port: 3333,
+    port: env.PORT,
   })
   .then(() => {
     console.log('server running')
